@@ -4,12 +4,11 @@ require_once "connect_db.php";
 if(isset($_GET['id'])) {
    $id = $_GET['id'];
 }
+echo $id;
+$stmt = $dbh->prepare("DELETE FROM threads WHERE id = $id");
+$stmt->execute();
 
-$sql = "delete * from threads where id = $id";
-$stmt = $dbh->query($sql);
-
-header("Location: ./res.php?id=$id");
+header("Location: ./home.php");
 exit();
-
 
  ?>

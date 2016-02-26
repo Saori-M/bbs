@@ -10,6 +10,7 @@
  $stmt = $dbh->prepare("select * from threads where id = ? ");
  $stmt->execute(array($id));
  $thread = $stmt->fetch();
+ echo $id;
  ?>
    <h2> <?php echo $thread["title"]."<br />";?></h2>
    <h3> <?php echo $thread["text"]."<br />";?></h3>
@@ -23,7 +24,7 @@
   <textarea cols="30" rows="5" type="text" name="text" size="30" value="" ></textarea><br />
   <br />
   <input type="hidden" name="page" value="thread">
-  <input type="submit" value="作成" />
+  <input type="submit" value="編集" />
 </form>
 
 <form action="delete_thread.php?id=<?php echo $id;?>" method="post">
